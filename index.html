@@ -1,697 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nainsee Kumari — Digital Marketing Portfolio</title>
-  <style>
-    :root {
-      --bg: #1a0a2e;
-      --bg2: #221040;
-      --accent: #c084fc;
-      --accent2: #e879f9;
-      --text: #f3e8ff;
-      --muted: #a78bca;
-      --card: #2d1b4e;
-      --border: #4c2d7a;
-      --tag-bg: #3b1f60;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nainsee Kumari — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF7;
+    --card:#FFFFFF;
+    --ink:#3B3244;
+    --muted:#948C9C;
+    --pink:#F3B9C4;
+    --lavender:#CBBEEB;
+    --mint:#B9E1D3;
+    --pink-deep:#E88CA0;
+    --line:#EFE9F2;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{font-family:'Quicksand', sans-serif;}
+  a{color:var(--pink-deep); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  ::selection{background:var(--pink); color:var(--ink);}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  .wrap{max-width:680px; margin:0 auto; padding:0 24px;}
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(251,250,247,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:680px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+  }
+  .brand{font-family:'Quicksand', sans-serif; font-weight:700; font-size:16px;}
+  .nav-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .nav-links a{
+    color:var(--ink); font-size:13.5px; font-weight:600;
+    padding:6px 12px; border-radius:999px; transition:background .2s ease;
+  }
+  .nav-links a:hover{background:var(--line); text-decoration:none;}
 
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(26,10,46,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-    .nav-brand {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
+  .hero{ text-align:center; padding:64px 24px 40px; }
+  .avatar{
+    width:76px; height:76px; margin:0 auto 20px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--pink), var(--lavender));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Quicksand', sans-serif; font-weight:700; font-size:26px; color:#fff;
+    box-shadow:0 10px 26px -12px rgba(232,140,160,0.6);
+  }
+  .hero h1{ font-family:'Quicksand', sans-serif; font-size:clamp(26px,5vw,34px); font-weight:700; margin:0 0 6px; }
+  .hero .role{color:var(--pink-deep); font-weight:700; font-size:15px; margin:0 0 18px;}
+  .hero p.bio{ max-width:56ch; margin:0 auto; color:#5B5364; font-size:15.5px; }
+  .hero .chips{ display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-top:22px; }
 
-    /* HERO */
-    .hero {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 5rem 2rem 4rem;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-    }
-    .hero-text { flex: 1; }
-    .available-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(192,132,252,0.12);
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      padding: 0.3rem 0.9rem;
-      font-size: 0.78rem;
-      color: var(--accent);
-      margin-bottom: 1.4rem;
-    }
-    .available-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-      display: inline-block;
-    }
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
-    }
-    h1 span { color: var(--accent); }
-    .hero-subtitle {
-      color: var(--accent2);
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    .hero-desc {
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 520px;
-      margin-bottom: 1.8rem;
-    }
-    .hero-btns {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #1a0a2e;
-      border: none;
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: var(--accent2); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--border);
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent2); }
+  .pill{ display:inline-block; padding:6px 14px; border-radius:999px; font-size:12.5px; font-weight:700; background:var(--line); color:var(--ink); }
+  .pill.pink{background:#FCE4E8; color:#B25A6C;}
+  .pill.lav{background:#EDE8FA; color:#6A5B9E;}
+  .pill.mint{background:#E1F3EC; color:#3F8F72;}
 
-    .stats {
-      display: flex;
-      gap: 2rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      display: block;
-    }
-    .stat-label {
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+  section{padding:44px 0;}
+  .divider{ display:flex; align-items:center; justify-content:center; gap:6px; margin:0 0 30px; }
+  .divider span{width:5px; height:5px; border-radius:50%; background:var(--pink);}
+  .divider span:nth-child(2){background:var(--lavender);}
+  .divider span:nth-child(3){background:var(--mint);}
 
-    /* DIVIDER */
-    .section-divider {
-      max-width: 860px;
-      margin: 0 auto;
-      border: none;
-      border-top: 1px solid var(--border);
-    }
+  h2.title{ font-family:'Quicksand', sans-serif; font-size:21px; font-weight:700; text-align:center; margin:0 0 28px; }
+  h2.title .emoji{margin-left:4px;}
 
-    /* SECTION WRAPPER */
-    section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
+  .skill-block{margin-bottom:20px;}
+  .skill-block:last-child{margin-bottom:0;}
+  .skill-label{font-size:12.5px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; margin:0 0 10px; text-align:center;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
 
-    .section-label {
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-family: 'Courier New', monospace;
-      margin-bottom: 0.5rem;
-    }
-    h2 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      margin-bottom: 2.5rem;
-      letter-spacing: -0.01em;
-    }
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px;
+    padding:22px 24px; margin-bottom:16px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:0 16px 34px -22px rgba(59,50,68,0.25);}
+  .card-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px 14px; margin-bottom:4px;}
+  .card-role{font-family:'Quicksand', sans-serif; font-weight:700; font-size:15.5px;}
+  .card-dates{font-size:12px; color:var(--muted); font-weight:600;}
+  .card-sub{font-size:13px; color:var(--pink-deep); font-weight:700; margin:0 0 10px;}
+  .card ul{margin:0; padding-left:18px;}
+  .card li{font-size:14.5px; margin-bottom:6px; color:#4A4252;}
+  .card li::marker{color:var(--pink);}
 
-    /* SKILLS GRID */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.3rem;
-    }
-    .skill-card-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .skill-card h3 {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag {
-      background: var(--tag-bg);
-      color: var(--muted);
-      font-size: 0.72rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 99px;
-      border: 1px solid var(--border);
-    }
+  .mini-list .card{padding:16px 20px;}
+  .mini-list .card-role{font-size:14.5px;}
 
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.4rem;
-    }
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.6rem;
-      transition: border-color 0.2s;
-    }
-    .project-card:hover { border-color: var(--accent); }
-    .project-type {
-      font-size: 0.72rem;
-      color: var(--accent2);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-    .project-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-    }
-    .project-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .project-card ul {
-      list-style: none;
-      margin-bottom: 1rem;
-    }
-    .project-card ul li {
-      font-size: 0.83rem;
-      color: var(--muted);
-      padding: 0.2rem 0;
-      padding-left: 1rem;
-      position: relative;
-    }
-    .project-card ul li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .cert-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;}
+  .cert{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 18px; text-align:left; }
+  .cert-top{display:flex; align-items:center; gap:8px; margin-bottom:6px;}
+  .cert-top .badge{ width:22px; height:22px; border-radius:50%; flex-shrink:0; background:var(--mint); display:flex; align-items:center; justify-content:center; }
+  .cert-name{font-family:'Quicksand', sans-serif; font-weight:700; font-size:14px;}
+  .cert-issuer{font-size:12.5px; color:var(--muted); margin:0;}
+  .cert-meta{font-size:11px; color:#3F8F72; font-weight:700; margin-top:4px;}
 
-    /* EXPERIENCE */
-    .experience-list { display: flex; flex-direction: column; gap: 1.4rem; }
-    .exp-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.6rem;
-    }
-    .exp-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.8rem;
-    }
-    .exp-title { font-size: 1rem; font-weight: 600; }
-    .exp-company { color: var(--accent); font-size: 0.88rem; }
-    .exp-date {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-family: 'Courier New', monospace;
-      white-space: nowrap;
-    }
-    .exp-card ul { list-style: none; }
-    .exp-card ul li {
-      font-size: 0.88rem;
-      color: var(--muted);
-      padding: 0.2rem 0;
-      padding-left: 1rem;
-      position: relative;
-    }
-    .exp-card ul li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
+  .edu-item{ display:flex; justify-content:space-between; gap:10px 16px; flex-wrap:wrap; padding:12px 0; border-bottom:1px dashed var(--line); font-size:14.5px; }
+  .edu-item:last-child{border-bottom:none;}
+  .edu-dates{font-size:12px; color:var(--muted); font-weight:700; white-space:nowrap;}
 
-    /* EDUCATION */
-    .edu-list { display: flex; flex-direction: column; gap: 1.2rem; }
-    .edu-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-    .edu-card h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.2rem; }
-    .edu-card p { font-size: 0.85rem; color: var(--muted); }
-    .edu-year {
-      font-size: 0.78rem;
-      color: var(--accent);
-      font-family: 'Courier New', monospace;
-      white-space: nowrap;
-    }
+  .contact-card{ background:linear-gradient(135deg, #FCE4E8, #EDE8FA); border-radius:20px; padding:32px 26px; text-align:center; }
+  .contact-card h2{margin-top:0;}
+  .contact-list{display:flex; flex-direction:column; gap:10px; align-items:center; margin-top:14px;}
+  .contact-list a, .contact-list span{ font-size:14.5px; font-weight:700; color:var(--ink); display:inline-flex; align-items:center; gap:8px; }
+  .contact-list a:hover{color:var(--pink-deep);}
 
-    /* CERTS */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-    .cert-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.2rem 1.4rem;
-      transition: border-color 0.2s;
-    }
-    .cert-card:hover { border-color: var(--accent); }
-    .cert-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
-    .cert-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
-    .cert-card p { font-size: 0.78rem; color: var(--muted); }
+  footer{ text-align:center; padding:30px 24px 46px; color:var(--muted); font-size:13px; }
+  .heart{ display:inline-block; color:var(--pink-deep); animation:beat 1.4s ease-in-out infinite; transform-origin:center; }
+  @keyframes beat{ 0%,100%{transform:scale(1);} 25%{transform:scale(1.18);} 40%{transform:scale(0.95);} }
 
-    /* CONTACT */
-    .contact-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
-      text-align: center;
-    }
-    .contact-box p {
-      color: var(--muted);
-      margin-bottom: 1.8rem;
-      font-size: 0.95rem;
-    }
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: border-color 0.2s;
-    }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 600px) {
-      .hero { flex-direction: column; gap: 1.5rem; padding: 3rem 1.2rem 2rem; }
-      section { padding: 3rem 1.2rem; }
-      nav { padding: 0 1rem; }
-      .nav-links { gap: 0.8rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  .reveal{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-brand">nainsee.kumari</div>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#certs">Certs</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-inner">
+    <span class="brand">nainsee ✿</span>
+    <div class="nav-links">
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#certifications">certs</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-text">
-    <div class="available-badge">Available for Digital Marketing roles</div>
-    <h1>Nainsee<br /><span>Kumari</span></h1>
-    <div class="hero-subtitle">Digital Marketing · SEO · Content Strategy · Performance Marketing</div>
-    <p class="hero-desc">
-      Motivated Digital Marketing Trainee honing skills in SEO, e-commerce management, and content strategy.
-      Proven track record of managing end-to-end projects with a focus on brand growth and organic traffic.
-    </p>
-    <div class="hero-btns">
-      <a href="mailto:Singhnainsee50@gmail.com" class="btn-primary">✉ Hire me</a>
-      <a href="tel:+919939475966" class="btn-secondary">📞 Call me</a>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="avatar">NK</div>
+    <h1>Nainsee Kumari</h1>
+    <p class="role">Digital Marketing</p>
+    <p class="bio">A motivated, detail-loving Digital Marketing Trainee growing skills in SEO, e-commerce management &amp; content strategy 🌱 Loves taking projects from start to finish with an eye on brand growth and organic traffic, and thrives in remote, fast-paced teams. With a background in HR too, bringing analytical thinking, project management, and warm communication to every project. ✨</p>
+    <div class="chips">
+      <span class="pill pink">SEO</span>
+      <span class="pill lav">WordPress</span>
+      <span class="pill lav">Shopify</span>
+      <span class="pill pink">Content Strategy</span>
     </div>
-    <div class="stats">
-      <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Skills</span></div>
-      <div class="stat"><span class="stat-num">4</span><span class="stat-label">Certs</span></div>
-      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Internships</span></div>
-      <div class="stat"><span class="stat-num">B.COM</span><span class="stat-label">Degree</span></div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="divider"><span></span><span></span><span></span></div>
+    <h2 class="title">Skills <span class="emoji">🌸</span></h2>
+
+    <div class="skill-block">
+      <p class="skill-label">SEO &amp; Growth</p>
+      <div class="chip-row">
+        <span class="pill">SEO</span>
+        <span class="pill">Keyword Research</span>
+        <span class="pill">Analytics</span>
+        <span class="pill">Performance Marketing</span>
+        <span class="pill">Content Strategy</span>
+      </div>
     </div>
-  </div>
+    <div class="skill-block">
+      <p class="skill-label">Platforms &amp; Tools</p>
+      <div class="chip-row">
+        <span class="pill lav">WordPress</span>
+        <span class="pill lav">Shopify</span>
+        <span class="pill lav">SEMrush</span>
+        <span class="pill lav">Google Ads</span>
+        <span class="pill lav">Meta Ads</span>
+        <span class="pill lav">Google Analytics</span>
+        <span class="pill lav">Google Search Console</span>
+        <span class="pill lav">Canva</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <p class="skill-label">Craft &amp; Collaboration</p>
+      <div class="chip-row">
+        <span class="pill mint">Content Creation</span>
+        <span class="pill mint">Visual Branding</span>
+        <span class="pill mint">Strategic Thinking</span>
+        <span class="pill mint">Project Management</span>
+        <span class="pill mint">Communication</span>
+        <span class="pill mint">Creative Problem-Solving</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="divider"><span></span><span></span><span></span></div>
+    <h2 class="title">Experience <span class="emoji">💼</span></h2>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-role">Digital Marketing Trainee — DUCAT Institute of AI</span>
+        <span class="card-dates">Feb 2026 – Present</span>
+      </div>
+      <p class="card-sub">TATA Dresses · Shopify</p>
+      <ul>
+        <li>Manages website operations and product visibility for a Shopify store.</li>
+        <li>Improves the shopper journey with conversion-rate optimization (CRO).</li>
+      </ul>
+      <p class="card-sub" style="margin-top:14px;">AyurvedaHub · WordPress</p>
+      <ul>
+        <li>Builds SEO strategy to grow organic rankings on a WordPress site.</li>
+        <li>Writes wellness-focused content and runs technical SEO audits.</li>
+      </ul>
+    </div>
+
+    <div class="mini-list">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-role">HR Intern — Job Desire</span>
+          <span class="card-dates">Jan – Mar 2025</span>
+        </div>
+        <ul>
+          <li>Managed end-to-end recruitment cycles remotely.</li>
+          <li>Streamlined communication between candidates and hiring teams.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="card-role">HR Intern — Alvineient</span>
+          <span class="card-dates">Oct – Dec 2024</span>
+        </div>
+        <ul>
+          <li>Assisted with payroll processing and admin documentation.</li>
+          <li>Coordinated remote onboarding for new hires.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="card-role">HR Intern — Walkin Manpower Solutions</span>
+          <span class="card-dates">Aug – Oct 2024</span>
+        </div>
+        <ul>
+          <li>Supported candidate sourcing and screening.</li>
+          <li>Maintained internal databases and recruitment reports.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="reveal">
+    <div class="divider"><span></span><span></span><span></span></div>
+    <h2 class="title">Certifications <span class="emoji">🎓</span></h2>
+    <div class="cert-grid">
+      <div class="cert">
+        <div class="cert-top">
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3F8F72" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="cert-name">Google Ads Search</span>
+        </div>
+        <p class="cert-issuer">Google</p>
+      </div>
+      <div class="cert">
+        <div class="cert-top">
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3F8F72" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="cert-name">Social Media</span>
+        </div>
+        <p class="cert-issuer">HubSpot Academy</p>
+      </div>
+      <div class="cert">
+        <div class="cert-top">
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3F8F72" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="cert-name">SEO</span>
+        </div>
+        <p class="cert-issuer">HubSpot Academy</p>
+      </div>
+      <div class="cert">
+        <div class="cert-top">
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3F8F72" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="cert-name">Performance Marketing with AI</span>
+        </div>
+        <p class="cert-issuer">WsCube Tech</p>
+      </div>
+      <div class="cert">
+        <div class="cert-top">
+          <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3F8F72" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="cert-name">HR Workshop</span>
+        </div>
+        <p class="cert-issuer">Tareeqa Global Solution</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="divider"><span></span><span></span><span></span></div>
+    <h2 class="title">Education <span class="emoji">📚</span></h2>
+    <div class="card" style="padding:8px 24px;">
+      <div class="edu-item">
+        <span><strong>B.Com</strong> — Maulana Mazharul Haque Arabic &amp; Persian University</span>
+        <span class="edu-dates">2020 – 2023</span>
+      </div>
+      <div class="edu-item">
+        <span><strong>Senior Secondary (Commerce)</strong> — RNP Public School</span>
+        <span class="edu-dates">2018 – 2020</span>
+      </div>
+      <div class="edu-item">
+        <span><strong>Secondary Education</strong> — Imperial Public School</span>
+        <span class="edu-dates">2018</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="divider"><span></span><span></span><span></span></div>
+    <div class="contact-card">
+      <h2 class="title" style="margin-bottom:6px;">Let's connect <span class="emoji">💌</span></h2>
+      <p style="margin:0; color:#5B5364; font-size:14px;">Always happy to chat about SEO, e-commerce, or a new opportunity.</p>
+      <div class="contact-list">
+        <span>📞 +91 99394 75966</span>
+        <a href="mailto:singhnainsee50@gmail.com">✉️ singhnainsee50@gmail.com</a>
+        <span>🔗 Nainsee Kumari — LinkedIn</span>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<hr class="section-divider" />
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">// technical skills</div>
-  <h2>What I work with</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-card-icon">🔍</div>
-      <h3>SEO & Analytics</h3>
-      <div class="skill-tags">
-        <span class="tag">SEO</span>
-        <span class="tag">Keyword Research</span>
-        <span class="tag">Google Analytics</span>
-        <span class="tag">Technical SEO Audit</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">📣</div>
-      <h3>Performance Marketing</h3>
-      <div class="skill-tags">
-        <span class="tag">Performance Marketing</span>
-        <span class="tag">Google Ads</span>
-        <span class="tag">Social Media Insights</span>
-        <span class="tag">CRO</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">✍️</div>
-      <h3>Content & Branding</h3>
-      <div class="skill-tags">
-        <span class="tag">Content Strategy</span>
-        <span class="tag">Content Creation</span>
-        <span class="tag">Visual Branding</span>
-        <span class="tag">On-Page Optimization</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🛒</div>
-      <h3>E-Commerce & Tools</h3>
-      <div class="skill-tags">
-        <span class="tag">E-Commerce Management</span>
-        <span class="tag">WordPress</span>
-        <span class="tag">WooCommerce</span>
-        <span class="tag">UX & Funnels</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🤝</div>
-      <h3>Soft Skills</h3>
-      <div class="skill-tags">
-        <span class="tag">Project Management</span>
-        <span class="tag">Strategic Thinking</span>
-        <span class="tag">Communication</span>
-        <span class="tag">Creative Problem-Solving</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">👥</div>
-      <h3>HR & Operations</h3>
-      <div class="skill-tags">
-        <span class="tag">Recruitment</span>
-        <span class="tag">Onboarding</span>
-        <span class="tag">Payroll Admin</span>
-        <span class="tag">Database Management</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider" />
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">// projects</div>
-  <h2>Things I've built</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-type">E-Commerce · SEO</div>
-      <h3>TATA Dresses — E-Commerce Website</h3>
-      <p>Managing website operations and optimizing product visibility for an e-commerce platform as part of live training.</p>
-      <ul>
-        <li>Managing website operations and optimizing product visibility</li>
-        <li>Focusing on enhancing the user journey and implementing CRO strategies</li>
-        <li>Improving product discoverability through on-page SEO</li>
-      </ul>
-      <div class="project-tags">
-        <span class="tag">E-Commerce</span>
-        <span class="tag">CRO</span>
-        <span class="tag">UX</span>
-        <span class="tag">SEO</span>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-type">SEO · Content Strategy</div>
-      <h3>AyurvedaHub — SEO & Content Strategy</h3>
-      <p>Developing comprehensive SEO and content strategies for a wellness niche brand to boost organic reach.</p>
-      <ul>
-        <li>Developing comprehensive SEO strategies to enhance organic search rankings</li>
-        <li>Creating high-quality, research-based content for the wellness niche</li>
-        <li>Performing technical SEO audits and on-page optimization to drive traffic</li>
-      </ul>
-      <div class="project-tags">
-        <span class="tag">SEO Audit</span>
-        <span class="tag">Content Strategy</span>
-        <span class="tag">Organic Growth</span>
-        <span class="tag">Wellness</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider" />
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">// experience</div>
-  <h2>Where I've worked</h2>
-  <div class="experience-list">
-    <div class="exp-card">
-      <div class="exp-meta">
-        <div>
-          <div class="exp-title">Digital Marketing Trainee</div>
-          <div class="exp-company">DUCAT Institute of AI</div>
-        </div>
-        <div class="exp-date">Feb 2026 – Present</div>
-      </div>
-      <ul>
-        <li>Hands-on training in SEO, content strategy, performance marketing, and e-commerce</li>
-        <li>Managing live projects: TATA Dresses and AyurvedaHub</li>
-        <li>Building skills in Google Analytics, keyword research, and on-page optimization</li>
-      </ul>
-    </div>
-    <div class="exp-card">
-      <div class="exp-meta">
-        <div>
-          <div class="exp-title">HR Intern</div>
-          <div class="exp-company">Job Desire</div>
-        </div>
-        <div class="exp-date">Jan 2025 – Mar 2025</div>
-      </div>
-      <ul>
-        <li>Managed end-to-end recruitment life cycles in a remote environment</li>
-        <li>Streamlined communication between candidates and hiring teams</li>
-      </ul>
-    </div>
-    <div class="exp-card">
-      <div class="exp-meta">
-        <div>
-          <div class="exp-title">HR Intern</div>
-          <div class="exp-company">Alvineient</div>
-        </div>
-        <div class="exp-date">Oct 2024 – Dec 2024</div>
-      </div>
-      <ul>
-        <li>Assisted with payroll processing and administrative documentation</li>
-        <li>Coordinated remote onboarding processes for new hires</li>
-      </ul>
-    </div>
-    <div class="exp-card">
-      <div class="exp-meta">
-        <div>
-          <div class="exp-title">HR Intern</div>
-          <div class="exp-company">Walkin Manpower Solutions</div>
-        </div>
-        <div class="exp-date">Aug 2024 – Oct 2024</div>
-      </div>
-      <ul>
-        <li>Supported the recruitment team with candidate sourcing and screening</li>
-        <li>Maintained internal databases and prepared recruitment reports</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider" />
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">// education</div>
-  <h2>How I got here</h2>
-  <div class="edu-list">
-    <div class="edu-card">
-      <div>
-        <h3>Bachelor's Degree</h3>
-        <p>Maulana Mazharul Haque Arabic & Persian University</p>
-      </div>
-      <div class="edu-year">2020 – 2023</div>
-    </div>
-    <div class="edu-card">
-      <div>
-        <h3>Senior Secondary Education</h3>
-        <p>RNP Public School</p>
-      </div>
-      <div class="edu-year">2018 – 2020</div>
-    </div>
-    <div class="edu-card">
-      <div>
-        <h3>Secondary Education</h3>
-        <p>Imperial Public School</p>
-      </div>
-      <div class="edu-year">2018</div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider" />
-
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <div class="section-label">// certifications</div>
-  <h2>What I've earned</h2>
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-icon">🔍</div>
-      <h3>SEO Certification</h3>
-      <p>HubSpot Academy</p>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">📣</div>
-      <h3>Performance Marketing with AI Workshop</h3>
-      <p>WsCube Tech</p>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">💼</div>
-      <h3>Business Development Certification</h3>
-      <p>Amway</p>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">👥</div>
-      <h3>HR Workshop Certification</h3>
-      <p>Tareeqa Global Solution</p>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider" />
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">// contact</div>
-  <h2>Let's work together</h2>
-  <div class="contact-box">
-    <p>Open to entry-level Digital Marketing roles in Noida / Delhi NCR.<br />
-    Quick learner, detail-oriented, and ready to contribute from day one.</p>
-    <div class="contact-links">
-      <a href="mailto:Singhnainsee50@gmail.com" class="contact-link">✉ Singhnainsee50@gmail.com</a>
-      <a href="tel:+919939475966" class="contact-link">📞 +91-9939475966</a>
-    </div>
-  </div>
-</section>
-
 <footer>
-  © 2026 Nainsee Kumari · Made with ♥
+  made with a little <span class="heart">♥</span> by Nainsee
 </footer>
+
+<script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !prefersReduced){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.1});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+</script>
 
 </body>
 </html>
