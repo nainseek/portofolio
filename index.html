@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nainsee Kumari — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF7FA;
+    --paper:#FFFFFF;
+    --paper-2:#FCEEF2;
+    --ink:#3B3244;
+    --muted:#9A8FA0;
+    --pink:#F3B9C4;
+    --pink-deep:#E88CA0;
+    --lavender:#CBBEEB;
+    --lavender-deep:#8C79C9;
+    --mint:#B9E1D3;
+    --mint-deep:#3F9B7C;
+    --line:#F0E4EC;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pink-deep); text-decoration:none;}
+  ::selection{background:var(--pink); color:#fff;}
+
+  /* ---------- cute browser shell ---------- */
+  .browser{
+    max-width:760px;
+    margin:32px auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:0 30px 70px -36px rgba(232,140,160,0.45);
+  }
+  .chrome-bar{
+    display:flex; align-items:center; gap:14px;
+    padding:16px 22px;
+    background:linear-gradient(135deg, #FCEEF2, #F3EEFB);
+    border-bottom:1px solid var(--line);
+  }
+  .dots{display:flex; gap:7px; flex-shrink:0;}
+  .dot{width:11px; height:11px; border-radius:50%;}
+  .dot.p{background:var(--pink);}
+  .dot.l{background:var(--lavender);}
+  .dot.m{background:var(--mint);}
+  .url-pill{
+    flex:1; display:flex; align-items:center; gap:8px;
+    background:#fff; border:1px solid var(--line); border-radius:999px;
+    padding:8px 18px; font-size:13px; color:var(--muted); min-width:0;
+  }
+  .url-pill span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .url-pill b{color:var(--ink); font-weight:700;}
+  .url-heart{color:var(--pink-deep); flex-shrink:0;}
+
+  .tabs{
+    display:flex; gap:4px; padding:10px 22px;
+    background:linear-gradient(135deg, #FCEEF2, #F3EEFB);
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    padding:8px 14px; font-size:13px; font-weight:700;
+    font-family:'Nunito', sans-serif; color:var(--muted);
+    border-radius:999px; white-space:nowrap; transition:background .2s ease, color .2s ease;
+  }
+  .tab:hover{background:#fff; color:var(--ink);}
+  .tab.active{background:#fff; color:var(--pink-deep);}
+
+  main{padding:0;}
+  section{padding:48px 34px; border-bottom:1px dashed var(--line);}
+  section:last-of-type{border-bottom:none;}
+  @media (max-width:600px){ section{padding:38px 22px;} }
+
+  .eyebrow{
+    font-family:'Nunito', sans-serif; font-size:12.5px; font-weight:800;
+    color:var(--mint-deep); letter-spacing:.02em; margin:0 0 8px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .eyebrow .dot-trio span{width:5px; height:5px; border-radius:50%; display:inline-block; margin-right:2px;}
+
+  h2.section-title{
+    font-family:'Quicksand', sans-serif; font-size:24px; font-weight:700; margin:0 0 22px;
+  }
+
+  /* ---------- hero / cute serp ---------- */
+  .hero{padding-top:40px; text-align:left;}
+  .searchbar{
+    display:flex; align-items:center; gap:12px;
+    background:#fff; border:1.5px solid var(--line); border-radius:999px;
+    padding:12px 20px; max-width:480px; margin-bottom:30px;
+    box-shadow:0 8px 20px -14px rgba(232,140,160,0.5);
+  }
+  .searchbar svg{flex-shrink:0; color:var(--pink-deep);}
+  #typed{font-family:'Nunito', sans-serif; font-weight:700; font-size:14px; color:var(--ink);}
+  .cursor{display:inline-block; width:2px; background:var(--pink-deep); margin-left:2px; animation:blink 1s step-end infinite;}
+  @keyframes blink{ 50%{opacity:0;} }
+
+  .avatar{
+    width:64px; height:64px; border-radius:50%;
+    background:linear-gradient(135deg, var(--pink), var(--lavender));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Quicksand', sans-serif; font-weight:700; font-size:22px; color:#fff;
+    margin-bottom:16px;
+    box-shadow:0 10px 24px -12px rgba(232,140,160,0.6);
+  }
+  .serp-url{font-family:'Nunito', sans-serif; font-weight:700; font-size:13px; color:var(--mint-deep); margin:0 0 6px;}
+  .serp-title{
+    font-family:'Quicksand', sans-serif; font-size:clamp(26px,4.6vw,36px); font-weight:700;
+    color:var(--lavender-deep); margin:0 0 6px; line-height:1.2;
+  }
+  .serp-role{color:var(--pink-deep); font-weight:800; font-size:14.5px; margin:0 0 16px;}
+  .serp-desc{max-width:58ch; font-size:15.5px; color:#4A4252; margin:0 0 20px;}
+  .site-links{display:flex; flex-wrap:wrap; gap:8px;}
+  .site-links a{
+    font-family:'Nunito', sans-serif; font-weight:700; font-size:12.5px;
+    background:var(--paper-2); color:var(--pink-deep);
+    padding:6px 14px; border-radius:999px;
+  }
+  .site-links a:hover{background:var(--pink); color:#fff;}
+
+  /* ---------- skills ---------- */
+  .skill-block{margin-bottom:20px;}
+  .skill-block:last-child{margin-bottom:0;}
+  .skill-label{font-size:12.5px; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; margin-bottom:10px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'Nunito', sans-serif; font-weight:700; font-size:12.5px;
+    padding:7px 14px; border-radius:999px; background:var(--line); color:var(--ink);
+  }
+  .chip.pink{background:#FCE4E8; color:#B25A6C;}
+  .chip.lav{background:#EDE8FA; color:#6A5B9E;}
+  .chip.mint{background:#E1F3EC; color:#2E7A5F;}
+
+  /* ---------- experience ---------- */
+  .case{
+    background:var(--paper); border:1px solid var(--line); border-radius:18px;
+    padding:22px 24px; margin-bottom:16px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .case:hover{transform:translateY(-3px); box-shadow:0 18px 36px -24px rgba(140,121,201,0.4);}
+  .case-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px 14px; margin-bottom:4px;}
+  .case-role{font-family:'Quicksand', sans-serif; font-weight:700; font-size:16px;}
+  .case-dates{font-family:'Nunito', sans-serif; font-weight:700; font-size:12px; color:var(--muted);}
+  .case-domain{font-family:'Nunito', sans-serif; font-weight:800; font-size:12.5px; color:var(--mint-deep); margin-bottom:10px;}
+  .platform-tag{
+    display:inline-block; font-size:11px; font-weight:800; padding:2px 10px;
+    border-radius:999px; margin-left:6px; vertical-align:middle;
+  }
+  .platform-tag.shopify{background:#DDF3E2; color:#1A7F44;}
+  .platform-tag.wordpress{background:#DCE9F7; color:#3255B0;}
+  .case ul{margin:0; padding-left:18px;}
+  .case li{margin-bottom:6px; font-size:14.5px; color:#4A4252;}
+  .case li::marker{color:var(--pink);}
+
+  .timeline{border-left:2px dashed var(--line); padding-left:22px; margin-left:6px; margin-top:26px;}
+  .tl-item{position:relative; margin-bottom:20px;}
+  .tl-item::before{
+    content:"🌸"; position:absolute; left:-30px; top:-2px; font-size:12px;
+  }
+  .tl-role{font-family:'Quicksand', sans-serif; font-weight:700; font-size:15px;}
+  .tl-dates{font-family:'Nunito', sans-serif; font-weight:700; font-size:12px; color:var(--muted); margin-left:8px;}
+  .tl-item ul{margin:6px 0 0; padding-left:18px;}
+  .tl-item li{font-size:14px; margin-bottom:4px; color:#4A4252;}
+
+  /* ---------- certifications ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px;}
+  .cert-card{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:18px 20px;}
+  .cert-top{display:flex; align-items:center; gap:8px; margin-bottom:6px;}
+  .cert-top .badge{
+    width:24px; height:24px; border-radius:50%; flex-shrink:0;
+    background:var(--mint); display:flex; align-items:center; justify-content:center;
+  }
+  .cert-name{font-family:'Quicksand', sans-serif; font-weight:700; font-size:14.5px;}
+  .cert-issuer{font-size:13px; color:var(--muted); margin:0;}
+
+  /* ---------- education ---------- */
+  .edu-row{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px 16px;
+    padding:12px 0; border-bottom:1px dashed var(--line); font-size:14.5px;
+  }
+  .edu-row:last-child{border-bottom:none;}
+  .edu-dates{font-family:'Nunito', sans-serif; font-weight:700; font-size:12.5px; color:var(--muted);}
+
+  /* ---------- contact / footer ---------- */
+  footer{
+    padding:40px 34px 36px;
+    background:linear-gradient(135deg, #FCEEF2, #F3EEFB);
+    text-align:center;
+  }
+  @media (max-width:600px){ footer{padding:32px 22px;} }
+  footer .eyebrow{justify-content:center; color:var(--pink-deep);}
+  footer h2.section-title{color:var(--ink);}
+  .contact-list{display:flex; flex-direction:column; gap:10px; align-items:center; margin-top:10px;}
+  .contact-list a, .contact-list span{
+    font-family:'Nunito', sans-serif; font-weight:700; font-size:14.5px; color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .contact-list a:hover{color:var(--pink-deep);}
+  .foot-note{margin-top:22px; font-size:13px; color:var(--muted); font-family:'Nunito', sans-serif;}
+  .heart{display:inline-block; color:var(--pink-deep); animation:beat 1.4s ease-in-out infinite; transform-origin:center;}
+  @keyframes beat{ 0%,100%{transform:scale(1);} 25%{transform:scale(1.2);} 40%{transform:scale(0.95);} }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="browser">
+  <div class="chrome-bar">
+    <div class="dots"><span class="dot p"></span><span class="dot l"></span><span class="dot m"></span></div>
+    <div class="url-pill">
+      <svg class="url-heart" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.5-8.1C.6 10.1 1.2 6.7 4 5.1c2.2-1.25 4.9-.6 6.4 1.4.4.5.9 1.2 1.6 2.1.7-.9 1.2-1.6 1.6-2.1 1.5-2 4.2-2.65 6.4-1.4 2.8 1.6 3.4 5 1.5 7.8C18.7 16.65 12 21 12 21z"/></svg>
+      <span><b>Nainsee Kumari</b> — Portfolio</span>
+    </div>
+  </div>
+  <nav class="tabs">
+    <a class="tab active" href="#about">about</a>
+    <a class="tab" href="#skills">skills</a>
+    <a class="tab" href="#experience">experience</a>
+    <a class="tab" href="#certifications">certificates</a>
+    <a class="tab" href="#education">education</a>
+    <a class="tab" href="#contact">contact</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="searchbar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <span id="typed"></span><span class="cursor">&nbsp;</span>
+      </div>
+
+      <div class="avatar">NK</div>
+      <p class="serp-url">Portfolio &rsaquo; About</p>
+      <h1 class="serp-title">Nainsee Kumari</h1>
+      <p class="serp-role">Digital Marketing 🌷</p>
+      <p class="serp-desc">A motivated, detail-loving Digital Marketing Trainee growing skills in SEO, e-commerce management &amp; content strategy 🌱 Loves taking projects from start to finish with an eye on brand growth and organic traffic, and thrives in remote, fast-paced teams. With a background in HR too, bringing analytical thinking, project management, and warm communication to every project. ✨</p>
+
+      <div class="site-links">
+        <a href="#skills">✿ skills</a>
+        <a href="#experience">✿ experience</a>
+        <a href="#certifications">✿ certificates</a>
+        <a href="#contact">✿ contact</a>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <p class="eyebrow"><span class="dot-trio"><span style="background:var(--pink)"></span><span style="background:var(--lavender)"></span><span style="background:var(--mint)"></span></span> skills</p>
+      <h2 class="section-title">What I work with 🌸</h2>
+      <div class="skill-block">
+        <p class="skill-label">SEO &amp; Growth</p>
+        <div class="chip-row">
+          <span class="chip pink">SEO</span>
+          <span class="chip pink">Keyword Research</span>
+          <span class="chip pink">Analytics</span>
+          <span class="chip pink">Performance Marketing</span>
+          <span class="chip pink">Content Strategy</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-label">Platforms &amp; Tools</p>
+        <div class="chip-row">
+          <span class="chip lav">WordPress</span>
+          <span class="chip lav">Shopify</span>
+          <span class="chip lav">SEMrush</span>
+          <span class="chip lav">Google Ads</span>
+          <span class="chip lav">Meta Ads</span>
+          <span class="chip lav">Google Analytics</span>
+          <span class="chip lav">Google Search Console</span>
+          <span class="chip lav">Canva</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-label">Craft &amp; Collaboration</p>
+        <div class="chip-row">
+          <span class="chip mint">Content Creation</span>
+          <span class="chip mint">Visual Branding</span>
+          <span class="chip mint">Strategic Thinking</span>
+          <span class="chip mint">Project Management</span>
+          <span class="chip mint">Communication</span>
+          <span class="chip mint">Creative Problem-Solving</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <p class="eyebrow"><span class="dot-trio"><span style="background:var(--pink)"></span><span style="background:var(--lavender)"></span><span style="background:var(--mint)"></span></span> experience</p>
+      <h2 class="section-title">Recent work 💼</h2>
+
+      <div class="case">
+        <div class="case-head">
+          <span class="case-role">Digital Marketing Trainee — DUCAT Institute of AI</span>
+          <span class="case-dates">Feb 2026 – Present</span>
+        </div>
+        <p class="case-domain">TATA Dresses <span class="platform-tag shopify">Shopify</span></p>
+        <ul>
+          <li>Manages website operations and product visibility for a Shopify store.</li>
+          <li>Improves the shopper journey with conversion-rate optimization (CRO).</li>
+        </ul>
+        <p class="case-domain" style="margin-top:14px;">AyurvedaHub <span class="platform-tag wordpress">WordPress</span></p>
+        <ul>
+          <li>Builds SEO strategy to grow organic rankings on a WordPress site.</li>
+          <li>Writes wellness-focused content and runs technical SEO audits.</li>
+        </ul>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-role">HR Intern — Job Desire</span><span class="tl-dates">Jan – Mar 2025</span>
+          <ul>
+            <li>Managed end-to-end recruitment cycles remotely.</li>
+            <li>Streamlined communication between candidates and hiring teams.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <span class="tl-role">HR Intern — Alvineient</span><span class="tl-dates">Oct – Dec 2024</span>
+          <ul>
+            <li>Assisted with payroll processing and admin documentation.</li>
+            <li>Coordinated remote onboarding for new hires.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <span class="tl-role">HR Intern — Walkin Manpower Solutions</span><span class="tl-dates">Aug – Oct 2024</span>
+          <ul>
+            <li>Supported candidate sourcing and screening.</li>
+            <li>Maintained internal databases and recruitment reports.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="reveal">
+      <p class="eyebrow"><span class="dot-trio"><span style="background:var(--pink)"></span><span style="background:var(--lavender)"></span><span style="background:var(--mint)"></span></span> certificates</p>
+      <h2 class="section-title">Certifications 🎓</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E7A5F" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="cert-name">Google Ads Search</span>
+          </div>
+          <p class="cert-issuer">Google</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E7A5F" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="cert-name">Social Media</span>
+          </div>
+          <p class="cert-issuer">HubSpot Academy</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E7A5F" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="cert-name">SEO</span>
+          </div>
+          <p class="cert-issuer">HubSpot Academy</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E7A5F" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="cert-name">Performance Marketing with AI</span>
+          </div>
+          <p class="cert-issuer">WsCube Tech</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-top">
+            <span class="badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E7A5F" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="cert-name">HR Workshop</span>
+          </div>
+          <p class="cert-issuer">Tareeqa Global Solution</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="reveal">
+      <p class="eyebrow"><span class="dot-trio"><span style="background:var(--pink)"></span><span style="background:var(--lavender)"></span><span style="background:var(--mint)"></span></span> education</p>
+      <h2 class="section-title">Education 📚</h2>
+      <div class="edu-row">
+        <span><strong>B.Com</strong> — Maulana Mazharul Haque Arabic &amp; Persian University</span>
+        <span class="edu-dates">2020 – 2023</span>
+      </div>
+      <div class="edu-row">
+        <span><strong>Senior Secondary (Commerce)</strong> — RNP Public School</span>
+        <span class="edu-dates">2018 – 2020</span>
+      </div>
+      <div class="edu-row">
+        <span><strong>Secondary Education</strong> — Imperial Public School</span>
+        <span class="edu-dates">2018</span>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p class="eyebrow"><span class="dot-trio"><span style="background:var(--pink)"></span><span style="background:var(--lavender)"></span><span style="background:var(--mint)"></span></span> contact</p>
+    <h2 class="section-title">Let's connect 💌</h2>
+    <div class="contact-list">
+      <span>📞 +91 99394 75966</span>
+      <a href="mailto:singhnainsee50@gmail.com">✉️ singhnainsee50@gmail.com</a>
+      <span>🔗 Nainsee Kumari — LinkedIn</span>
+    </div>
+    <p class="foot-note">made with a little <span class="heart">♥</span> by Nainsee</p>
+  </footer>
+</div>
+
+<script>
+  const queries = ["digital marketing trainee", "seo for shopify stores", "wordpress content strategy", "google ads & meta ads"];
+  const el = document.getElementById('typed');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    el.textContent = queries[0];
+  } else {
+    let qi = 0, ci = 0, deleting = false;
+    function tick(){
+      const current = queries[qi];
+      if(!deleting){
+        ci++;
+        el.textContent = current.slice(0, ci);
+        if(ci === current.length){ deleting = true; setTimeout(tick, 1400); return; }
+      } else {
+        ci--;
+        el.textContent = current.slice(0, ci);
+        if(ci === 0){ deleting = false; qi = (qi+1) % queries.length; }
+      }
+      setTimeout(tick, deleting ? 35 : 65);
+    }
+    tick();
+  }
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !prefersReduced){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  const tabs = document.querySelectorAll('.tab');
+  const sections = Array.from(tabs).map(t => document.querySelector(t.getAttribute('href')));
+  window.addEventListener('scroll', ()=>{
+    let idx = 0;
+    sections.forEach((s, i)=>{ if(s && s.getBoundingClientRect().top <= 130) idx = i; });
+    tabs.forEach((t,i)=>t.classList.toggle('active', i===idx));
+  });
+</script>
+
+</body>
+</html>
